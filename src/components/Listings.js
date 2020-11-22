@@ -14,19 +14,19 @@ export default function Listings() {
       </div>
       <h1 className="jobTitle">Senior Frontend Developer</h1>
       <p className="jobListingInfo">
-        <span>1d ago</span>
-        <span> &bull; </span>
-        <span>Full Time</span>
-        <span> &bull; </span>
-        <span>USA only</span>
+        <span className="postedDate">1d ago</span>
+        <span className="bullet"> &#9679; </span>
+        <span className="posType">Full Time</span>
+        <span className="bullet"> &#9679; </span>
+        <span className="posLocation">USA only</span>
       </p>
       <hr className="listingDivider" />
       <div className="tagsContainer">
-        <div className="tag">Frontend</div>
-        <div className="tag">Senior</div>
-        <div className="tag">HTML</div>
-        <div className="tag">CSS</div>
-        <div className="tag">Javascript</div>
+        <div data="frontend" className="tag">Frontend</div>
+        <div data="senior" className="tag">Senior</div>
+        <div data="html" className="tag">HTML</div>
+        <div data="css" className="tag">CSS</div>
+        <div data="javascript" className="tag">Javascript</div>
       </div>
     </div>
   )
