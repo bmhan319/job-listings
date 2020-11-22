@@ -4,13 +4,16 @@
   --DarkCyan: hsl(180, 29%, 50%);
 
   /* Neutral */
-  --LightGrayCyanBg: hsl(180, 52%, 96%);
-  --LightGrayCyanTab: hsl(180, 31%, 95%);
-  --DarkGrayCyan: hsl(180, 8%, 52%);
-  --VeryDarkGrayCyan: hsl(180, 14%, 20%);
+  --LightCyanBg: hsl(180, 52%, 96%);
+  --LightCyanTab: hsl(180, 31%, 95%);
+  --DarkGray: hsl(180, 8%, 52%);
+  --VeryDarkGray: hsl(180, 14%, 20%);
 
   /* Font Size */
   --FontSize: 15px;
+
+  /* Header Height */
+  --HeaderHeight: 156px;
 }
 
 * {

@@ -1,6 +1,6 @@
 .headerComponent {
   width: 100%;
-  height: 156px;
+  height: var(--HeaderHeight);
   background-color: var(--DarkCyan);
   background-image: url('../img/bg-header-mobile.svg');
   background-repeat: no-repeat;

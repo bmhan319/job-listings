@@ -1,0 +1,6 @@
+.mainComponent {
+  width: 100%;
+  height: calc(100vh - var(--HeaderHeight));
+  background-color: var(--LightCyanBg);
+  padding: 56px 24px;
+}
