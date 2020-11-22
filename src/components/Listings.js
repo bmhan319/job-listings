@@ -1,24 +1,24 @@
 import React from 'react'
-import photosnap from '../img/photosnap.svg'
+import logo from '../images/insure.svg'
 
-export default function Listings() {
+export default function Listings(props) {
   return (
     <div className="listingComponent">
       <div className="logoContainer">
-        <img className="logoImg" src={photosnap} alt="insure"/>
+        <img className="logoImg" src={logo} alt="insure"/>
       </div>
       <div className="topLineContainer">
-        <h3 className="companyName">Photsnap</h3>
-        <h2 className="newListing">NEW!</h2>
-        <h2 className="featuredListing">FEATURED</h2>
+        <h3 className="companyName">{props.state.company}</h3>
+        <h2 className="newListing">{props.state.new}!</h2>
+        <h2 className="featuredListing">{props.state.featured}</h2>
       </div>
-      <h1 className="jobTitle">Senior Frontend Developer</h1>
+      <h1 className="jobTitle">{props.state.position}</h1>
       <p className="jobListingInfo">
-        <span className="postedDate">1d ago</span>
+        <span className="postedDate">{props.state.postedAt}</span>
         <span className="bullet"> &#9679; </span>
-        <span className="posType">Full Time</span>
+        <span className="posContract">{props.state.contract}</span>
         <span className="bullet"> &#9679; </span>
-        <span className="posLocation">USA only</span>
+        <span className="posLocation">{props.state.location}</span>
       </p>
       <hr className="listingDivider" />
       <div className="tagsContainer">

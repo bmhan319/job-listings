@@ -5,7 +5,7 @@ export default class Main extends Component {
   render() {
     return (
       <div className="mainComponent">
-        <Listings />
+        <Listings state={this.props.state}/>
       </div>
     )
   }
