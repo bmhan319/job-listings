@@ -4,6 +4,7 @@ import logo from '../images/insure.svg'
 export default class Listings extends Component {
   loadStateData = () => {
     document.querySelector('.newListing').innerHTML = (this.props.state.new === true) ? 'NEW!' : ''
+    document.querySelector('.featuredListing').innerHTML = (this.props.state.featured === true) ? 'FEATURED' : ''
   }
 
   componentDidMount() {
