@@ -9,11 +9,11 @@
   top: 0;
 }
 
-.listComponentTag {
+.listComponentFilterOn {
   transform: translateY(-42px);
 }
 
-.listComponentNoTag {
+.listComponentFilterOff {
   transform: translateY(0);
 }
 

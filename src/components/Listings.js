@@ -19,7 +19,7 @@ export default class Listings extends Component {
 
   render() {
     return (
-      <li id={`listingComponent${this.props.item.id}`} className="listingComponent listComponentTag">
+      <li id={`listingComponent${this.props.item.id}`} className="listingComponent listComponentFilterOff">
         <div className="logoContainer">
           <img className="logoImg" src={this.props.item.logo} alt={this.props.item.company}/>
         </div>
