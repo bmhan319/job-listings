@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Filter(props) {
   return (
-    <div className="filterComponent filterOff">
+    <div id="filterComponent" className="filterComponent filterOff">
         <div className="filterContainer">
           <ul className="filterTagsList">
             <li className="filterTag">

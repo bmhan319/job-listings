@@ -7,9 +7,9 @@ export default class Main extends Component {
     return (
       <div className="mainComponent">
         <Filter state={this.props.state}/>
-        <ul className="mainList">
+        <ul id="mainList" className="mainList mainListFilterOff">
           {this.props.state.json.map( item => (
-            <Listings key={item.id} item={item} state={this.props.state}/>
+            <Listings key={item.id} item={item} state={this.props.state} addTags={this.props.addTags} openFilter={this.props.openFilter} />
           ))}
         </ul>
       </div>

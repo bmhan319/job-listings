@@ -19,7 +19,7 @@ export default class Listings extends Component {
 
   render() {
     return (
-      <li id={`listingComponent${this.props.item.id}`} className="listingComponent listComponentFilterOff">
+      <li id={`listingComponent${this.props.item.id}`} className="listingComponent">
         <div className="logoContainer">
           <img className="logoImg" src={this.props.item.logo} alt={this.props.item.company}/>
         </div>
@@ -38,13 +38,13 @@ export default class Listings extends Component {
         </p>
         <hr className="listingDivider" />
         <ul className="tagsContainer">
-          <li key={this.props.item.company + this.props.item.role} data={this.props.item.role} className="roleTag tag">{this.props.item.role}</li>
-          <li key={this.props.item.company + this.props.item.level} data={this.props.item.level} className="levelTag tag">{this.props.item.level}</li>
+          <li key={this.props.item.company + this.props.item.role}  onClick={()=>{this.props.addTags(this.props.item.role)}} data={this.props.item.role} className="roleTag tag">{this.props.item.role}</li>
+          <li key={this.props.item.company + this.props.item.level} onClick={()=>{this.props.addTags(this.props.item.level)}} data={this.props.item.level} className="levelTag tag">{this.props.item.level}</li>
           { this.props.item.languages.map( item => (
-            <li key={this.props.item.company + item} data={item} className="languageTag tag">{item}</li>
+            <li key={this.props.item.company + item} data={item}  onClick={()=>{this.props.addTags(item)}} className="languageTag tag">{item}</li>
           ))}
           { this.props.item.tools.map( item => (
-            <li key={this.props.item.company + item} data={item} className="toolTag tag">{item}</li>
+            <li key={this.props.item.company + item} data={item} onClick={()=>{this.props.addTags(item)}} className="toolTag tag">{item}</li>
           ))}
           
         </ul>

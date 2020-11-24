@@ -7,4 +7,14 @@
 .mainList {
   width: 100%;
   padding: 56px 24px 1px;
+  position: relative;
+  top: 0;
+}
+
+.mainListFilterOn {
+  transform: translateY(-42px);
+}
+
+.mainListFilterOff {
+  transform: translateY(0);
 }

@@ -6,15 +6,7 @@
   border-radius: 6px;
   list-style: none;
   box-shadow: var(--BoxShadow);
-  top: 0;
-}
-
-.listComponentFilterOn {
-  transform: translateY(-42px);
-}
-
-.listComponentFilterOff {
-  transform: translateY(0);
+  
 }
 
 .logoContainer {
