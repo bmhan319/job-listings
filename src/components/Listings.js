@@ -2,27 +2,24 @@ import React, { Component } from 'react'
 
 export default class Listings extends Component {
   displayNew = (status) => {
-    if (status === true) {
-      document.getElementById(`new${this.props.item.id}`).style.display = "block"
-    }
+    document.getElementById(`new${this.props.item.id}`).style.display = (status === true) ? "block" : "none"
   }
 
   displayFeature = (status) => {
-    if (status === true) {
-      document.getElementById(`featured${this.props.item.id}`).style.display = "block"
-    } 
+    document.getElementById(`featured${this.props.item.id}`).style.display = (status === true) ? "block" : "none"
+    document.getElementById(`listingComponent${this.props.item.id}`).style.borderLeft = (status === true) ? "5px solid var(--DarkCyan)" : "0"
   }
+
+
   
   componentDidMount () {
-    //console.log(this.props.item)
-    //console.log(this.props.state.featured)
     this.displayNew(this.props.item.new)
     this.displayFeature(this.props.item.featured)
   }
 
   render() {
     return (
-      <li className="listingComponent">
+      <li id={`listingComponent${this.props.item.id}`} className="listingComponent">
         <div className="logoContainer">
           <img className="logoImg" src={this.props.item.logo} alt={this.props.item.company}/>
         </div>
