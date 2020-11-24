@@ -7,19 +7,8 @@ import './css/listings.css'
 
 export default class App extends Component {
   state = {
-    'id': '',
-    'logo': '',
-    'company': '',
     'new': 'NEW!',
     'featured': 'FEATURED',
-    'position': '',
-    'postedAt': '',
-    'contract': '',
-    'location': '',
-    'level': '',
-    'role': '',
-    'languages': [],
-    'tools': [],
     'json': []
   }
 
@@ -30,21 +19,8 @@ export default class App extends Component {
     const data = await response.json()
 
     this.setState({
-      'id': data[4].id,
-      'logo': '.' + data[4].logo,
-      'company': data[4].company,
-      'position': data[4].position,
-      'postedAt': data[4].postedAt,
-      'contract': data[4].contract,
-      'location': data[4].location,
-      'level': data[4].level,
-      'role': data[4].role,
-      'languages': data[4].languages,
-      'tools': data[4].tools,
       'json': data
     })
-    document.querySelector('.newListing').style.display = (data[4].new === true) ? "block" : "none"
-    document.querySelector('.featuredListing').style.display = (data[4].featured === true) ? "block" : "none"
   }
 
   componentDidMount () {

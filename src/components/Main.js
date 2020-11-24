@@ -4,9 +4,11 @@ import Listings from './Listings'
 export default class Main extends Component {
   render() {
     return (
-      <div className="mainComponent">
-        <Listings state={this.props.state}/>
-      </div>
+      <ul className="mainComponent">
+        {this.props.state.json.map( item => (
+          <Listings key={item.id} item={item} state={this.props.state}/>
+        ))}
+      </ul>
     )
   }
 }

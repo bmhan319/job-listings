@@ -1,10 +1,12 @@
 .listingComponent {
   background-color: #fff;
   padding: 24px;
+  margin-bottom:  40px;
   position: relative;
   border-radius: 6px;
   box-shadow: 0 10px 16px 0 hsla(180, 8%, 52%, .2);
   border-left: 5px solid var(--DarkCyan);
+  list-style: none;
 }
 
 .logoContainer {
