@@ -26,7 +26,6 @@ export default class App extends Component {
   }
 
   addTags = (tag) => {
-    console.log(this.state.tags)
     if (this.state.tags.indexOf(tag) === -1) {
       this.setState({
         tags:[...this.state.tags, tag]
@@ -59,7 +58,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Main state={this.state} addTags={this.addTags} openFilter={this.openFilter}/>
+        <Main state={this.state} addTags={this.addTags} />
       </div>
     )
   }
