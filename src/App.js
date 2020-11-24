@@ -16,10 +16,11 @@ export default class App extends Component {
     'postedAt': '',
     'contract': '',
     'location': '',
-    'languages': [],
     'level': '',
     'role': '',
-    'tools': []
+    'languages': [],
+    'tools': [],
+    'json': []
   }
 
   callApi = async () => {
@@ -29,20 +30,21 @@ export default class App extends Component {
     const data = await response.json()
 
     this.setState({
-      'id': data[0].id,
-      'logo': '.' + data[0].logo,
-      'company': data[0].company,
-      'position': data[0].position,
-      'postedAt': data[0].postedAt,
-      'contract': data[0].contract,
-      'location': data[0].location,
-      'languages': data[0].languages,
-      'level': data[0].level,
-      'role': data[0].role,
-      'tools': data[0].tools
+      'id': data[4].id,
+      'logo': '.' + data[4].logo,
+      'company': data[4].company,
+      'position': data[4].position,
+      'postedAt': data[4].postedAt,
+      'contract': data[4].contract,
+      'location': data[4].location,
+      'level': data[4].level,
+      'role': data[4].role,
+      'languages': data[4].languages,
+      'tools': data[4].tools,
+      'json': data
     })
-    document.querySelector('.newListing').style.display = (data[0].new === true) ? "block" : "none"
-    document.querySelector('.featuredListing').style.display = (data[0].featured === true) ? "block" : "none"
+    document.querySelector('.newListing').style.display = (data[4].new === true) ? "block" : "none"
+    document.querySelector('.featuredListing').style.display = (data[4].featured === true) ? "block" : "none"
   }
 
   componentDidMount () {

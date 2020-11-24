@@ -21,13 +21,17 @@ export default class Listings extends Component {
           <span className="posLocation">{this.props.state.location}</span>
         </p>
         <hr className="listingDivider" />
-        <div className="tagsContainer">
-          <div data="frontend" className="tag">Frontend</div>
-          <div data="senior" className="tag">Senior</div>
-          <div data="html" className="tag">HTML</div>
-          <div data="css" className="tag">CSS</div>
-          <div data="javascript" className="tag">Javascript</div>
-        </div>
+        <ul className="tagsContainer">
+          <li key="role" className="roleTag tag">{this.props.state.role}</li>
+          <li key="level" className="levelTag tag">{this.props.state.level}</li>
+          { this.props.state.languages.map( item => (
+            <li key={item} className="languageTag tag">{item}</li>
+          ))}
+          { this.props.state.tools.map( item => (
+            <li key={item} className="toolTag tag">{item}</li>
+          ))}
+          
+        </ul>
       </div>
     )
   }

@@ -69,6 +69,11 @@
   padding-bottom: 16px;
 }
 
+.jobTitle:hover {
+  color: var(--DarkCyan);
+  cursor: pointer;
+}
+
 .jobListingInfo {
   color: var(--DarkGray);
   font-size: .8em;
@@ -86,6 +91,7 @@
   flex-direction: row;
   padding-top: 16px;
   width: 100%;
+  list-style: none;
 }
 
 .tag {
@@ -95,4 +101,10 @@
   border-radius: 4px;
   font-size: .85em;
   font-weight: 600;
+}
+
+.tag:hover {
+  background-color: var(--DarkCyan);
+  color: #fff;
+  cursor: pointer;
 }
