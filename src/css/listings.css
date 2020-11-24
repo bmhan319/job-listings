@@ -5,6 +5,16 @@
   position: relative;
   border-radius: 6px;
   list-style: none;
+  box-shadow: var(--BoxShadow);
+  top: 0;
+}
+
+.listComponentTag {
+  transform: translateY(-42px);
+}
+
+.listComponentNoTag {
+  transform: translateY(0);
 }
 
 .logoContainer {

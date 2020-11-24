@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import './css/header.css'
 import './css/main.css'
+import './css/filter.css'
 import './css/listings.css'
 
 export default class App extends Component {

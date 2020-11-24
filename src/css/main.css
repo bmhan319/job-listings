@@ -1,5 +1,10 @@
 .mainComponent {
   width: 100%;
+  position: relative;
   background-color: var(--LightCyanBg);
+}
+
+.mainList {
+  width: 100%;
   padding: 56px 24px 1px;
 }

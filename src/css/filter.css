@@ -1,0 +1,78 @@
+.filterComponent {
+  width: 100%;
+  padding: 0 24px;
+  position: relative; 
+}
+
+.filterOn {
+  display: block;
+}
+
+.filterOff {
+  display: none;
+}
+
+.filterContainer {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: var(--BoxShadow);
+  top: 0;
+  transform: translateY(-30%);
+}
+
+.filterTagsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.filterTag {
+  display: flex;
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.filterTagText {
+  background-color: var(--LightCyanBg);
+  color: var(--DarkCyan);
+  padding: 10px 8px 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.filterTagDelete {
+  background-color: var(--DarkCyan);
+  color: #fff;
+  padding: 10px 8px 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+} 
+
+.filterTagDelete:hover { 
+  background-color: #000;
+  cursor: pointer;
+}
+
+
+.filterClearContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterClearText {
+  color: var(--DarkGray);
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.filterClearText:hover {
+  color: var(--DarkCyan);
+  text-decoration: underline;
+  cursor: pointer;
+}
