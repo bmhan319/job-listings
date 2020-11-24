@@ -10,8 +10,8 @@ export default class App extends Component {
     'id': '',
     'logo': '',
     'company': '',
-    'new': false,
-    'featured': false,
+    'new': 'NEW!',
+    'featured': 'FEATURED',
     'position': '',
     'postedAt': '',
     'contract': '',
@@ -27,12 +27,11 @@ export default class App extends Component {
                     'Accept': 'application/json'}
     const response = await fetch( 'data.json', {headers: header} )
     const data = await response.json()
+
     this.setState({
       'id': data[0].id,
       'logo': '.' + data[0].logo,
       'company': data[0].company,
-      'new': data[0].new,
-      'featured': data[0].featured,
       'position': data[0].position,
       'postedAt': data[0].postedAt,
       'contract': data[0].contract,
@@ -42,6 +41,8 @@ export default class App extends Component {
       'role': data[0].role,
       'tools': data[0].tools
     })
+    document.querySelector('.newListing').style.display = (data[0].new === true) ? "block" : "none"
+    document.querySelector('.featuredListing').style.display = (data[0].featured === true) ? "block" : "none"
   }
 
   componentDidMount () {

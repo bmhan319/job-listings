@@ -55,6 +55,14 @@
   font-weight: 600;
 }
 
+.displayOff {
+  display: none;
+}
+
+.displayOn {
+  display: block;
+}
+ 
 .jobTitle {
   font-size: .95em;
   font-weight: 600;
