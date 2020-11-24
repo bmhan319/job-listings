@@ -3,25 +3,21 @@ import React, { Component } from 'react'
 export default class Listings extends Component {
   displayNew = (status) => {
     if (status === true) {
-      return "NEW!"
-    } else {
-      return ""
+      document.getElementById(`new${this.props.item.id}`).style.display = "block"
     }
   }
 
   displayFeature = (status) => {
     if (status === true) {
-      return "FEATURED"
-    } else {
-      return ""
-    }
+      document.getElementById(`featured${this.props.item.id}`).style.display = "block"
+    } 
   }
   
   componentDidMount () {
     //console.log(this.props.item)
     //console.log(this.props.state.featured)
     this.displayNew(this.props.item.new)
-    //this.displayFeature(this.props.item.featured)
+    this.displayFeature(this.props.item.featured)
   }
 
   render() {
@@ -32,8 +28,8 @@ export default class Listings extends Component {
         </div>
         <div className="topLineContainer">
           <h3 className="companyName">{this.props.item.company}</h3>
-          <h2 className="newListing displayOn">{this.displayNew(this.props.item.new)}</h2>
-          <h2 className="featuredListing displayOn">{this.displayFeature(this.props.item.featured)}</h2>
+          <h2 id={`new${this.props.item.id}`} className='specialListing newListing'>NEW!</h2>
+          <h2 id={`featured${this.props.item.id}`} className='specialListing featuredListing' >FEATURED</h2>
         </div>
         <h1 className="jobTitle">{this.props.item.position}</h1>
         <p className="jobListingInfo">

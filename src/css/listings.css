@@ -33,36 +33,22 @@
   margin-right: 16px;
 }
 
-.newListing {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--DarkCyan);
+.specialListing  {
   color: #fff;
   padding: 6px 10px 4px;
   border-radius: 20px;
   font-size: .7em;
   font-weight: 600;
+  display: none;
+}
+
+.newListing {
+  background-color: var(--DarkCyan);
   margin-right: 8px;
 }
 
 .featuredListing {
-  display: flex;
-  align-items: center;
   background-color: var(--VeryDarkGray);
-  color: #fff;
-  padding: 6px 10px 4px;
-  border-radius: 20px;
-  font-size: .7em;
-  font-weight: 600;
-}
-
-.displayOff {
-  display: none;
-}
-
-.displayOn {
-  display: block;
 }
  
 .jobTitle {
