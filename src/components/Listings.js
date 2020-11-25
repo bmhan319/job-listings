@@ -15,14 +15,14 @@ export default class Listings extends Component {
   componentDidMount () {
     this.displayNew(this.props.item.new)
     this.displayFeature(this.props.item.featured)
-    document.querySelectorAll('.languageTag').forEach( item => (
-      console.log(item.dataset.tag )
-    ))
+    //document.querySelectorAll('.languageTag').forEach( item => (
+    //  console.log(item.dataset.tag )
+    //))
   }
 
   render() {
     return (
-      <li id={`listingComponent${this.props.item.id}`} className="listingComponent" data-role={this.props.item.role} data-level={this.props.item.level} data-languages={this.props.item.languages} data-tools={this.props.item.tools} >
+      <li id={`listingComponent${this.props.item.id}`} className="listingComponent listingOn" data-role={this.props.item.role} data-level={this.props.item.level} data-languages={this.props.item.languages} data-tools={this.props.item.tools} >
         <div className="logoContainer">
           <img className="logoImg" src={this.props.item.logo} alt={this.props.item.company}/>
         </div>

@@ -5,8 +5,15 @@
   position: relative;
   border-radius: 6px;
   list-style: none;
-  box-shadow: var(--BoxShadow);
-  
+  box-shadow: var(--BoxShadow); 
+}
+
+.listingOn {
+  display: block;
+}
+
+.listingOff {
+  display: none;
 }
 
 .logoContainer {

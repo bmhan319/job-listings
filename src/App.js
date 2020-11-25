@@ -32,6 +32,7 @@ export default class App extends Component {
         tags:[...this.state.tags, tag]
       })
     }
+    this.filterListings(tag)
   }
 
   removeTags = (tag) => {
@@ -42,6 +43,7 @@ export default class App extends Component {
     if (this.state.tags.length === 1) {
       this.clearFilter()
     }
+    this.undoFilterListings(tag)
   }
 
   openFilter = () => {
@@ -59,6 +61,38 @@ export default class App extends Component {
       this.setState({
         tags:[]
       })
+  }
+
+  filterListings = (tag) => {
+    let listings = document.querySelectorAll('.listingComponent')
+    
+    listings.forEach( item => {
+      //console.log(item.dataset.role)
+      //console.log(item)
+      //console.log('tag', tag)
+      if (tag === item.dataset.role) {
+        item.classList.remove('listingOff')
+        item.classList.add('listingOn')
+      } else {
+        item.classList.remove('listingOn')
+        item.classList.add('listingOff')
+      }
+    })
+  }
+
+  undoFilterListings = (tag) => {
+    let listings = document.querySelectorAll('.listingComponent')
+    console.log(tag)
+
+    listings.forEach( item => {
+      if (tag === item.dataset.role) {
+        item.classList.remove('listingOff')
+        item.classList.add('listingOn')
+      } else {
+        item.classList.remove('listingOff')
+        item.classList.add('listingOn')
+      }
+    })
   }
 
   componentDidMount () {
