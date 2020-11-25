@@ -1,6 +1,0 @@
-<li key={item} className="filterTag">
-                <div className="filterTagText">{item}</div>
-                <div className="filterTagDelete">
-                  <img src='./images/icon-remove.svg' alt="remove icon" className="src"/>
-                </div>
-              </li>

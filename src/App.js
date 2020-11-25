@@ -14,8 +14,6 @@ export default class App extends Component {
     'tags': []
   }
 
-  bean = []
-
   callApi = async () => {
     const header = {'Content-Type': 'application/json',
                     'Accept': 'application/json'}
@@ -41,7 +39,6 @@ export default class App extends Component {
     let index = this.state.tags.indexOf(tag)
     array.splice(index, 1)
     this.setState({tags: array})
-    console.log(this.state.tags.length)
     if (this.state.tags.length === 1) {
       this.clearFilter()
     }
