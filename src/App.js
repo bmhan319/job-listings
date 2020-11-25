@@ -37,8 +37,14 @@ export default class App extends Component {
   }
 
   removeTags = (tag) => {
-    console.log(tag)
-    console.log(this.state.tags)
+    let array = [...this.state.tags]
+    let index = this.state.tags.indexOf(tag)
+    array.splice(index, 1)
+    this.setState({tags: array})
+    console.log(this.state.tags.length)
+    if (this.state.tags.length === 1) {
+      this.clearFilter()
+    }
   }
 
   openFilter = () => {
