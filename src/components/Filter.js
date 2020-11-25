@@ -6,15 +6,15 @@ export default function Filter(props) {
         <div className="filterContainer">
           <ul className="filterTagsList">
             { props.state.tags.map ( (item) => (
-              <li key={item} className="filterTag">
+              <li key={item} id={item} className="filterTag">
                 <div className="filterTagText">{item}</div>
-                <div className="filterTagDelete">
+                <div className="filterTagDelete" onClick={()=>{props.removeTags(item)}} >
                   <img src='./images/icon-remove.svg' alt="remove icon" className="src"/>
                 </div>
               </li>
             ))}
           </ul>
-          <div className="filterClearContainer">
+          <div className="filterClearContainer" onClick={props.clearFilter} >
             <p className="filterClearText">Clear</p>
           </div>
         </div>

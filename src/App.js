@@ -36,6 +36,11 @@ export default class App extends Component {
     }
   }
 
+  removeTags = (tag) => {
+    console.log(tag)
+    console.log(this.state.tags)
+  }
+
   openFilter = () => {
     document.getElementById('filterComponent').classList.add('filterOn')
     document.getElementById('filterComponent').classList.remove('filterOff')
@@ -43,13 +48,14 @@ export default class App extends Component {
     document.getElementById('mainList').classList.remove('mainListFilterOff')
   }
 
-  closeFilter = () => {
-    
+  clearFilter = () => {
       document.querySelector('.filterComponent').classList.add('filterOff')
       document.querySelector('.filterComponent').classList.remove('filterOn')
       document.getElementById('mainList').classList.add('mainListFilterOff')
       document.getElementById('mainList').classList.remove('mainListFilterOn')
-    
+      this.setState({
+        tags:[]
+      })
   }
 
   componentDidMount () {
@@ -62,7 +68,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Main state={this.state} addTags={this.addTags} />
+        <Main state={this.state} addTags={this.addTags} removeTags={this.removeTags} clearFilter={this.clearFilter}/>
       </div>
     )
   }
