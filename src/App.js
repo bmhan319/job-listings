@@ -29,16 +29,17 @@ export default class App extends Component {
 
   
   addTags = (tag) => {
-    ownTags.push(tag)
+    let jsonArray =[]
     this.openFilter()
+
     if (this.state.tags.indexOf(tag) === -1) {
+      ownTags.push(tag)
       this.setState({
         tags:[...this.state.tags, tag]
       })
     }
-    let jsonArray =[]
-    //created backof of sort of working App.js
-    //trying to filter elements in 'this.state.listings' in a manner similiar to this.state.tags
+    
+
     this.state.json.forEach(listing => {
       let array = []
       
