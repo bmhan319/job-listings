@@ -5,12 +5,13 @@ import './css/header.css'
 import './css/main.css'
 import './css/filter.css'
 import './css/listings.css'
-
+var ownTags = []
 export default class App extends Component {
   state = {
     'new': 'NEW!',
     'featured': 'FEATURED',
     'json': [],
+    'listings': [],
     'tags': []
   }
 
@@ -21,18 +22,50 @@ export default class App extends Component {
     const data = await response.json()
 
     this.setState({
-      'json': data
+      'json': data,
+      'listings': data
     })
   }
 
+  
   addTags = (tag) => {
+    ownTags.push(tag)
     this.openFilter()
     if (this.state.tags.indexOf(tag) === -1) {
       this.setState({
         tags:[...this.state.tags, tag]
       })
     }
-    this.filterListings()
+    let jsonArray =[]
+    //created backof of sort of working App.js
+    //trying to filter elements in 'this.state.listings' in a manner similiar to this.state.tags
+    this.state.json.forEach(listing => {
+      let array = []
+      
+      array.push(listing.role)
+      array.push(listing.level)
+      array.push( listing.languages.forEach(item=> {
+        array.push(item)
+      })) 
+      array.push( listing.tools.forEach(item=> {
+        array.push(item)
+      })) 
+
+      let count = 0
+      for (var i = 0; i < ownTags.length; i++) {
+        for (var k = 0; k < array.length; k++) {
+          if (ownTags[i] === array[k]) {
+            count++
+          }
+        }
+      }
+      if (count === ownTags.length) {
+        jsonArray.push(listing)
+      }
+    })
+    this.setState({
+      'listings': jsonArray
+    })
   }
 
   removeTags = (tag) => {
@@ -48,36 +81,6 @@ export default class App extends Component {
 
   
 
-  filterListings = () => {
-    let listings = document.querySelectorAll('.listingComponent')
-
-    listings.forEach( listItem => {
-      let array = []
-      let count = 0
-      array.push(listItem.dataset.role)
-      array.push(listItem.dataset.level)
-      array.push(listItem.dataset.languages.split(',').forEach(item=> {
-        array.push(item)
-      }))
-      array.push(listItem.dataset.tools.split(',').forEach(item=> {
-        array.push(item)
-      }))
-      
-      this.state.tags.forEach(tag=>{      
-        (array.indexOf(tag) !== -1) ? count++ : count--
-
-        if (count === this.state.tags.length) {
-          listItem.classList.remove('listingOff')
-          listItem.classList.add('listingOn')
-        } else {
-          listItem.classList.remove('listingOn')
-          listItem.classList.add('listingOff')
-        }
-      })
-
-    })
-  }
-
 
   openFilter = () => {
     document.getElementById('filterComponent').classList.add('filterOn')
@@ -92,12 +95,10 @@ export default class App extends Component {
     document.getElementById('mainList').classList.add('mainListFilterOff')
     document.getElementById('mainList').classList.remove('mainListFilterOn')
     this.setState({
-      tags:[]
+      tags:[],
+      listings: this.state.json
     })
-    document.querySelectorAll('.listingComponent').forEach( listItem => {
-      listItem.classList.remove('listingOff')
-      listItem.classList.add('listingOn')
-    })
+    ownTags = []
   }
 
   componentDidMount () {

@@ -1,0 +1,244 @@
+import React, { Component } from 'react'
+import Header from './components/Header'
+import Main from './components/Main'
+import './css/header.css'
+import './css/main.css'
+import './css/filter.css'
+import './css/listings.css'
+
+export default class App extends Component {
+  state = {
+    'new': 'NEW!',
+    'featured': 'FEATURED',
+    'json': [],
+    'listings': [],
+    'tags': []
+  }
+
+  callApi = async () => {
+    const header = {'Content-Type': 'application/json',
+                    'Accept': 'application/json'}
+    const response = await fetch( 'data.json', {headers: header} )
+    const data = await response.json()
+
+    this.setState({
+      'json': data,
+      'listings': data
+    })
+  }
+
+  addTags = (tag) => {
+    this.openFilter()
+    if (this.state.tags.indexOf(tag) === -1) {
+      this.setState({
+        tags:[...this.state.tags, tag]
+      })
+    }
+    this.filterListings()
+  }
+
+  removeTags = (tag) => {
+    let array = [...this.state.tags]
+    let index = this.state.tags.indexOf(tag)
+    array.splice(index, 1)
+    this.setState({tags: array})
+    if (this.state.tags.length === 1) {
+      this.clearFilter()
+    }
+    this.filterListings()
+  }
+
+  
+
+  filterListings = () => {
+    let listings = document.querySelectorAll('.listingComponent')
+
+    listings.forEach( listItem => {
+      let array = []
+      let count = 0
+      array.push(listItem.dataset.role)
+      array.push(listItem.dataset.level)
+      array.push(listItem.dataset.languages.split(',').forEach(item=> {
+        array.push(item)
+      }))
+      array.push(listItem.dataset.tools.split(',').forEach(item=> {
+        array.push(item)
+      }))
+      
+      this.state.tags.forEach(tag=>{      
+        (array.indexOf(tag) !== -1) ? count++ : count--
+
+        if (count === this.state.tags.length) {
+          listItem.classList.remove('listingOff')
+          listItem.classList.add('listingOn')
+        } else {
+          listItem.classList.remove('listingOn')
+          listItem.classList.add('listingOff')
+        }
+      })
+
+    })
+  }
+
+
+  openFilter = () => {
+    document.getElementById('filterComponent').classList.add('filterOn')
+    document.getElementById('filterComponent').classList.remove('filterOff')
+    document.getElementById('mainList').classList.add('mainListFilterOn')
+    document.getElementById('mainList').classList.remove('mainListFilterOff')
+  }
+
+  clearFilter = () => {
+    document.querySelector('.filterComponent').classList.add('filterOff')
+    document.querySelector('.filterComponent').classList.remove('filterOn')
+    document.getElementById('mainList').classList.add('mainListFilterOff')
+    document.getElementById('mainList').classList.remove('mainListFilterOn')
+    this.setState({
+      tags:[]
+    })
+    document.querySelectorAll('.listingComponent').forEach( listItem => {
+      listItem.classList.remove('listingOff')
+      listItem.classList.add('listingOn')
+    })
+  }
+
+  componentDidMount () {
+    window.onload = () => {
+      this.callApi()
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Main state={this.state} addTags={this.addTags} removeTags={this.removeTags} clearFilter={this.clearFilter}/>
+      </div>
+    )
+  }
+}
+
+
+
+
+
+
+
+let count = 0
+      this.state.tags.forEach (tag=> {
+        
+        for (let i = 0; i < array.length; i++) {
+          if (tag === array[i]) {
+            count++
+          } 
+        }
+        
+      })
+      console.log(count)
+
+
+
+
+//
+//
+//  This one is the method to go with!!!!!!
+//
+//
+addTags = (tag) => {
+    this.openFilter()
+    if (this.state.tags.indexOf(tag) === -1) {
+      this.setState({
+        tags:[...this.state.tags, tag]
+      })
+    }
+    console.log(this.state.json)
+    let jsonArray =[]
+    //created backof of sort of working App.js
+    //trying to filter elements in 'this.state.listings' in a manner similiar to this.state.tags
+    this.state.json.forEach(listing => {
+      let array = []
+      
+      array.push(listing.role)
+      array.push(listing.level)
+      array.push( listing.languages.forEach(item=> {
+        array.push(item)
+      })) 
+      array.push( listing.tools.forEach(item=> {
+        array.push(item)
+      })) 
+      console.log(array,tag)
+      for (var i = 0; i <= array.length; i++) {
+        if(tag === array[i]) {
+          console.log("yes")
+          jsonArray.push(listing)
+          break
+        } else {
+          console.log("no")
+        }
+      }
+
+
+    })
+    console.log(jsonArray)
+    this.setState({
+      'listings': jsonArray
+    })
+  }
+
+
+  //
+  //
+  //  THis one makes me late by one click on setState!!!!
+  //
+  //
+  addTags = (tag) => {
+    this.openFilter()
+    if (this.state.tags.indexOf(tag) === -1) {
+      this.setState({
+        tags:[...this.state.tags, tag]
+      })
+    }
+    console.log(this.state.json)
+    let jsonArray =[]
+    //created backof of sort of working App.js
+    //trying to filter elements in 'this.state.listings' in a manner similiar to this.state.tags
+    this.state.json.forEach(listing => {
+      let array = []
+      
+      array.push(listing.role)
+      array.push(listing.level)
+      array.push( listing.languages.forEach(item=> {
+        array.push(item)
+      })) 
+      array.push( listing.tools.forEach(item=> {
+        array.push(item)
+      })) 
+      //console.log(array,tag)
+      //for (var i = 0; i <= array.length; i++) {
+      //  if(tag === array[i]) {
+      //    console.log("yes")
+      //    jsonArray.push(listing)
+      //    break
+      //  } else {
+      //    console.log("no")
+      //  }
+      //}
+      let count = -3
+      for (var i = 0; i <= this.state.tags.length;i++) {
+        for (var k = 0; k <= array.length; k++) {
+          if (this.state.tags[i] === array[k]) {
+            console.log("match")
+            count++
+          }
+        }
+      }
+      console.log('count', count)
+      if (count === this.state.tags.length) {
+        jsonArray.push(listing)
+      }
+    })
+    console.log(jsonArray)
+    this.setState({
+      'listings': jsonArray
+    })
+  }
