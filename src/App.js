@@ -42,7 +42,6 @@ export default class App extends Component {
 
     this.state.json.forEach(listing => {
       let array = []
-      
       array.push(listing.role)
       array.push(listing.level)
       array.push( listing.languages.forEach(item=> {
@@ -77,7 +76,41 @@ export default class App extends Component {
     if (this.state.tags.length === 1) {
       this.clearFilter()
     }
-    this.filterListings()
+
+    ownTags.forEach( (tagItem,ind) => {
+      if (tag === tagItem) { 
+        ownTags.splice(ind, 1)
+      }
+    })
+    console.log(ownTags)
+
+    let jsonArray =[]
+    this.state.json.forEach(listing => {
+      let array = []
+      array.push(listing.role)
+      array.push(listing.level)
+      array.push( listing.languages.forEach(item=> {
+        array.push(item)
+      })) 
+      array.push( listing.tools.forEach(item=> {
+        array.push(item)
+      })) 
+
+      let count = 0
+      for (var i = 0; i < ownTags.length; i++) {
+        for (var k = 0; k < array.length; k++) {
+          if (ownTags[i] === array[k]) {
+            count++
+          }
+        }
+      }
+      if (count === ownTags.length) {
+        jsonArray.push(listing)
+      }
+    })
+    this.setState({
+      'listings': jsonArray
+    })
   }
 
   
