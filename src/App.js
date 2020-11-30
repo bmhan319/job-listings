@@ -43,7 +43,7 @@ export default class App extends Component {
     if (this.state.tags.length === 1) {
       this.clearFilter()
     }
-    console.log(this.state.tags)
+    this.filterListings()
   }
 
   
@@ -78,6 +78,7 @@ export default class App extends Component {
     })
   }
 
+
   openFilter = () => {
     document.getElementById('filterComponent').classList.add('filterOn')
     document.getElementById('filterComponent').classList.remove('filterOff')
@@ -86,7 +87,6 @@ export default class App extends Component {
   }
 
   clearFilter = () => {
-    let listings = document.querySelectorAll('.listingComponent')
     document.querySelector('.filterComponent').classList.add('filterOff')
     document.querySelector('.filterComponent').classList.remove('filterOn')
     document.getElementById('mainList').classList.add('mainListFilterOff')
@@ -94,7 +94,7 @@ export default class App extends Component {
     this.setState({
       tags:[]
     })
-    listings.forEach( listItem => {
+    document.querySelectorAll('.listingComponent').forEach( listItem => {
       listItem.classList.remove('listingOff')
       listItem.classList.add('listingOn')
     })
