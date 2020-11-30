@@ -50,6 +50,7 @@ export default class App extends Component {
 
   filterListings = () => {
     let listings = document.querySelectorAll('.listingComponent')
+
     listings.forEach( listItem => {
       let array = []
       let count = 0
@@ -63,11 +64,8 @@ export default class App extends Component {
       }))
       
       this.state.tags.forEach(tag=>{      
-        if (array.indexOf(tag) !== -1) {
-          count++
-        } else {
-          count--
-        }
+        (array.indexOf(tag) !== -1) ? count++ : count--
+
         if (count === this.state.tags.length) {
           listItem.classList.remove('listingOff')
           listItem.classList.add('listingOn')
@@ -76,6 +74,7 @@ export default class App extends Component {
           listItem.classList.add('listingOff')
         }
       })
+
     })
   }
 
@@ -87,12 +86,17 @@ export default class App extends Component {
   }
 
   clearFilter = () => {
+    let listings = document.querySelectorAll('.listingComponent')
     document.querySelector('.filterComponent').classList.add('filterOff')
     document.querySelector('.filterComponent').classList.remove('filterOn')
     document.getElementById('mainList').classList.add('mainListFilterOff')
     document.getElementById('mainList').classList.remove('mainListFilterOn')
     this.setState({
       tags:[]
+    })
+    listings.forEach( listItem => {
+      listItem.classList.remove('listingOff')
+      listItem.classList.add('listingOn')
     })
   }
 
