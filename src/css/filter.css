@@ -80,6 +80,7 @@
 @media screen and (min-width: 900px) {
   .filterComponent {
     padding: 0 165px;
+    width: 100%;
   }
 
   .filterContainer {

@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 
 export default class Listings extends Component {
+  //once determined if a listing needs a 'new' button, this adjusts the css to hide or remove that element
   displayNew = (status) => {
     document.getElementById(`new${this.props.item.id}`).style.display = (status === true) ? "block" : "none"
   }
-
+  //once determined if a listing needs a 'featured' button, this adjusts the css to hide or remove that element
   displayFeature = (status) => {
     document.getElementById(`featured${this.props.item.id}`).style.display = (status === true) ? "block" : "none"
     document.getElementById(`listingComponent${this.props.item.id}`).style.borderLeft = (status === true) ? "5px solid var(--DarkCyan)" : "0"
   }
 
-
-  
   componentDidMount () {
+    //the 'item' props comes from the 'Main' component 
+    //'item' is all the json data for each particular company that gets parsed under the 'map' method
     this.displayNew(this.props.item.new)
     this.displayFeature(this.props.item.featured)
   }
