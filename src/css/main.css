@@ -1,5 +1,6 @@
 .mainComponent {
   width: 100%;
+  min-height: calc( 100vh - var(--HeaderHeight) );
   position: relative;
   background-color: var(--LightCyanBg);
 }
@@ -17,4 +18,16 @@
 
 .mainListFilterOff {
   transform: translateY(0);
+}
+
+@media screen and (min-width: 376px) {
+  .mainComponent {
+    height: 100%;
+    min-height: calc( 100vh - var(--HeaderHeight) );
+  }
+
+  .mainList {
+    width: 100%;
+    padding: 75px 165px 120px;
+  }
 }

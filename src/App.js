@@ -32,7 +32,6 @@ export default class App extends Component {
   
   addTags = (tag) => {
     this.openFilter()
-
     if (this.state.tags.indexOf(tag) === -1) {
       ownTags.push(tag)
       this.setState({
@@ -59,7 +58,6 @@ export default class App extends Component {
     this.setState({
       tags: ownTags
     })
-
     this.filterTag()
   }
 
