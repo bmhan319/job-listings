@@ -103,3 +103,66 @@
   color: #fff;
   cursor: pointer;
 }
+
+@media screen and (min-width: 1270px) {
+  .listingComponent {
+    display: flex;
+    padding: 36px;
+    margin: 0 auto 24px;
+    align-items: center;
+    max-width: 1096px;
+  }
+
+  .logoContainer {
+    width: 98px;
+    height: 98px;
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    margin-right: 24px;
+    align-items: center;
+  }
+
+  .logoImg {
+    width: 100%;
+  }
+
+  .desktopContainer {
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktopLeft {
+    width: 265px;
+  }
+
+  .topLineContainer {
+    padding: 0 0 13px;
+  }
+  
+  .specialListing  {
+    padding: 8px 10px 6px;
+  }
+  
+  .jobTitle {
+    font-size: 1.1em;
+  }
+  
+  .jobListingInfo {
+    font-size: .85em;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+
+  .tagsContainer {
+    padding-top: 0;
+  }
+
+  .listingDivider {
+    display: none;
+  }
+}
