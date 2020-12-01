@@ -110,7 +110,6 @@
     padding: 36px;
     margin: 0 auto 24px;
     align-items: center;
-    max-width: 1096px;
   }
 
   .logoContainer {
@@ -129,7 +128,7 @@
   }
 
   .desktopContainer {
-    width: 87%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

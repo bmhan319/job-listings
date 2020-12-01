@@ -76,3 +76,13 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+@media screen and (min-width: 900px) {
+  .filterComponent {
+    padding: 0 165px;
+  }
+
+  .filterContainer {
+    transform: translateY(-50%);
+  }
+}
