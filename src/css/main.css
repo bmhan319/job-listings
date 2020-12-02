@@ -3,6 +3,8 @@
   min-height: calc( 100vh - var(--HeaderHeight) );
   position: relative;
   background-color: var(--LightCyanBg);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .mainList {
