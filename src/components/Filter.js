@@ -9,7 +9,7 @@ export default function Filter(props) {
               <li key={item} id={item} className="filterTag">
                 <div className="filterTagText">{item}</div>
                 <div className="filterTagDelete" onClick={()=>{props.removeTags(item)}} >
-                  <img src='./images/icon-remove.svg' alt="remove icon" className="src"/>
+                  <img src='./images/icon-remove.svg' alt="remove icon" className="closeTagIcon"/>
                 </div>
               </li>
             ))}

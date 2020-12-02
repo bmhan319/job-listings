@@ -48,16 +48,17 @@
 .filterTagDelete {
   background-color: var(--DarkCyan);
   color: #fff;
-  padding: 10px 8px 6px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
 } 
 
 .filterTagDelete:hover { 
   background-color: #000;
   cursor: pointer;
 }
-
 
 .filterClearContainer {
   display: flex;
@@ -81,9 +82,22 @@
   .filterComponent {
     padding: 0 165px;
     width: 100%;
+    z-index: 10;
   }
 
   .filterContainer {
     transform: translateY(-50%);
+  }
+
+  .filterTagsList {
+    display: flex;
+    flex-wrap: initial;
+    gap: 16px;
+  }
+  
+  .filterTag {
+    display: flex;
+    font-size: .8em;
+    font-weight: 600;
   }
 }
